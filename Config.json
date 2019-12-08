@@ -1,3 +1,4 @@
 {
-  "TOKEN": "Your API Token goes here"
+  "TOKEN": "Your API Token goes here",
+  "PREFIX": "!"
 }
