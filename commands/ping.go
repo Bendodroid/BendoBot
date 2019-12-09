@@ -8,22 +8,18 @@ import (
 
 var err error
 
-func PingPreRun(s *discordgo.Session, ev *discordgo.MessageCreate, msg *[]string) {
-	_, err = s.ChannelMessageSend(ev.ChannelID, "This is the PreRun")
+func PingPreRun(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string) {
+}
+
+func PingRun(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string) {
+	_, err = s.ChannelMessageSend(ev.ChannelID, "Pong!")
 	errors.CheckMsgSendErr(err, ev.GuildID, ev.ChannelID)
 }
 
-func PingRun(s *discordgo.Session, ev *discordgo.MessageCreate, msg *[]string) {
-	_, err = s.ChannelMessageSend(ev.ChannelID, "This is the Run")
-	errors.CheckMsgSendErr(err, ev.GuildID, ev.ChannelID)
+func PingPostRun(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string) {
 }
 
-func PingPostRun(s *discordgo.Session, ev *discordgo.MessageCreate, msg *[]string) {
-	_, err = s.ChannelMessageSend(ev.ChannelID, "This is the PostRun")
-	errors.CheckMsgSendErr(err, ev.GuildID, ev.ChannelID)
-}
-
-func PingHelp(s *discordgo.Session, ev *discordgo.MessageCreate, msg *[]string) {
-	_, err = s.ChannelMessageSend(ev.ChannelID, "This is the Helptext")
+func PingHelp(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string) {
+	_, err = s.ChannelMessageSend(ev.ChannelID, "```text\nping\n\tIf the BendoBot works, it replies with 'Pong!'```")
 	errors.CheckMsgSendErr(err, ev.GuildID, ev.ChannelID)
 }

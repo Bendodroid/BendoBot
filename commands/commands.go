@@ -4,7 +4,7 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-type CommandFunc func(s *discordgo.Session, ev *discordgo.MessageCreate, msg *[]string)
+type CommandFunc func(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string)
 
 type Command struct {
 	PreRun  CommandFunc
