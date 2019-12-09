@@ -1,16 +1,11 @@
 package commands
 
-import (
-	"github.com/bwmarrin/discordgo"
+var (
+	CommandMap = make(map[string]Command)
 )
 
-type CommandFunc func(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string)
-
-type Command struct {
-	PreRun  CommandFunc
-	Run     CommandFunc
-	PostRun CommandFunc
-	Help    CommandFunc
+func init() {
+	CommandMap["ping"] = NewCommand(PingPreRun, PingRun, PingPostRun, PingHelp)
 }
 
 func NewCommand(preRun CommandFunc, run CommandFunc, postRun CommandFunc, help CommandFunc) Command {

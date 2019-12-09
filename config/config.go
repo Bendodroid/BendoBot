@@ -1,21 +1,12 @@
 package config
 
-import (
-	"encoding/json"
-	"io/ioutil"
+import "github.com/Bendodroid/BendoBot/util"
 
-	"github.com/Bendodroid/BendoBot/errors"
+var (
+	BotConfig Config
 )
 
-// loadConfig reads the Config from a JSON file
-func Load(filename string) Config {
-	// Read []byte from file
-	dat, err := ioutil.ReadFile(filename)
-	errors.Check(err, "Error reading from configfile")
-
-	// Parse json
-	var config Config
-	err = json.Unmarshal(dat, &config)
-	errors.Check(err, "Failed to parse json")
-	return config
+func init() {
+	// Load the Bot config
+	util.LoadJSON("Config.json", &BotConfig)
 }

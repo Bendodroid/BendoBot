@@ -6,16 +6,16 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/bwmarrin/discordgo"
+
+	"github.com/Bendodroid/BendoBot/config"
 	"github.com/Bendodroid/BendoBot/errors"
 	"github.com/Bendodroid/BendoBot/handlers"
-	"github.com/Bendodroid/BendoBot/util"
-
-	"github.com/bwmarrin/discordgo"
 )
 
 func main() {
 	// Create a new Discord session using the provided bot token.
-	session, err := discordgo.New("Bot " + util.BotConfig.Token)
+	session, err := discordgo.New("Bot " + config.BotConfig.Token)
 	errors.Check(err, "Error creating Discord session")
 
 	// Register the messageCreate func as a callback for MessageCreate events.

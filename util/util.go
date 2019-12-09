@@ -1,18 +1,19 @@
 package util
 
 import (
-	"github.com/Bendodroid/BendoBot/commands"
-	"github.com/Bendodroid/BendoBot/config"
+	"encoding/json"
+	"io/ioutil"
+
+	"github.com/Bendodroid/BendoBot/errors"
 )
 
-var (
-	BotConfig  config.Config
-	CommandMap = make(map[string]commands.Command)
-)
+// loadJSON loads the json file into target
+func LoadJSON(filename string, target interface{}) {
+	// Read []byte from file
+	dat, err := ioutil.ReadFile(filename)
+	errors.Check(err, "Error reading from file")
 
-func init() {
-	BotConfig = config.Load("Config.json")
-
-	CommandMap["ping"] = commands.NewCommand(
-		commands.PingPreRun, commands.PingRun, commands.PingPostRun, commands.PingHelp)
+	// Parse json
+	err = json.Unmarshal(dat, &target)
+	errors.Check(err, "Failed to parse json")
 }
