@@ -21,13 +21,14 @@ func MessageCreate(s *discordgo.Session, ev *discordgo.MessageCreate) {
 	if input == nil {
 		return
 	}
+
+	command := commands.CommandMap[strings.ToLower(input[0])]
 	// Check for help command
 	if len(input) > 1 && input[1] == "help" {
-		commands.CommandMap[strings.ToLower(input[0])].Help(s, ev, &input)
+		command.Help(s, ev, &input)
 		return
 	}
 	// Call all the methods for the associated command
-	command := commands.CommandMap[strings.ToLower(input[0])]
 	command.PreRun(s, ev, &input)
 	command.Run(s, ev, &input)
 	command.PostRun(s, ev, &input)
