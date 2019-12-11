@@ -7,7 +7,12 @@ import (
 	"github.com/Bendodroid/BendoBot/helptexts"
 )
 
+// Error to be used later
 var err error
+
+func init() {
+	helptexts.DB["ping"] = "```text\nping\n\tIf the BendoBot works, it replies with 'Pong!'```"
+}
 
 func pingPreRun(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string) {
 }
@@ -21,6 +26,6 @@ func pingPostRun(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]stri
 }
 
 func pingHelp(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string) {
-	_, err = s.ChannelMessageSend(ev.ChannelID, helptexts.Helptexts.Texts["ping"])
+	_, err = s.ChannelMessageSend(ev.ChannelID, helptexts.DB["ping"])
 	errors.CheckMsgSend(err, ev.GuildID, ev.ChannelID)
 }

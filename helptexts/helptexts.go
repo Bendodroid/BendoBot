@@ -1,13 +1,9 @@
 package helptexts
 
-import "github.com/Bendodroid/BendoBot/util"
-
-var (
-	// Helptexts is a struct containing a map for all helptexts
-	Helptexts HelptextDB
-)
+// DB is a map containing all helptexts
+var DB map[string]string
 
 func init() {
-	// Populate the Helptext map
-	util.LoadJSON("Helptexts.json", &Helptexts)
+	// Initialize empty map, otherwise 'assignment to entry in nil map' errors!
+	DB = make(map[string]string)
 }
