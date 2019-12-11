@@ -3,6 +3,7 @@ package config
 import "github.com/Bendodroid/BendoBot/util"
 
 var (
+	// BotConfig contains the currently active configuration options
 	BotConfig Config
 )
 

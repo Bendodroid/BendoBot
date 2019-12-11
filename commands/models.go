@@ -2,7 +2,7 @@ package commands
 
 import "github.com/bwmarrin/discordgo"
 
-// The type for the functions every command has to implement
+// CommandFunc is the type for the functions every command has to implement
 type CommandFunc func(s *discordgo.Session, ev *discordgo.MessageCreate, args *[]string)
 
 type Command struct {

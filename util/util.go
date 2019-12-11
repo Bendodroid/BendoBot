@@ -7,7 +7,7 @@ import (
 	"github.com/Bendodroid/BendoBot/errors"
 )
 
-// loadJSON loads the json file into target
+// LoadJSON loads the json file into target
 func LoadJSON(filename string, target interface{}) {
 	// Read []byte from file
 	dat, err := ioutil.ReadFile(filename)

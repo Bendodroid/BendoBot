@@ -3,6 +3,7 @@ package helptexts
 import "github.com/Bendodroid/BendoBot/util"
 
 var (
+	// Helptexts is a struct containing a map for all helptexts
 	Helptexts HelptextDB
 )
 
