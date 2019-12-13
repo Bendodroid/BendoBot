@@ -20,7 +20,7 @@ go build
 ./BendoBot
 ```
 
-To work, the bot needs a Config.json in your current working directory.
+To work, the bot needs a `Config.json` in your current working directory.
 An example is provided in this repo.
 Of course you need your own Discord API token, which you can get via the Discord Developer Portal.
 
