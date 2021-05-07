@@ -23,6 +23,10 @@ func MessageCreate(s *discordgo.Session, ev *discordgo.MessageCreate) {
 	}
 
 	command := commands.CommandMap[strings.ToLower(input[0])]
+	// Check if command is nil before doing sth with it
+	if command.Run == nil {
+		return
+	}
 	// Check for help command
 	if len(input) > 1 && input[1] == "help" {
 		command.Help(s, ev, &input)
