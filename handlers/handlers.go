@@ -37,6 +37,6 @@ func MessageCreate(s *discordgo.Session, ev *discordgo.MessageCreate) {
 // Ready is called when receiving the "ready" event
 func Ready(s *discordgo.Session, _ *discordgo.Ready) {
 	// Set the playing status
-	err := s.UpdateStatus(0, "with gophers...")
+	err := s.UpdateGameStatus(0, "with gophers...")
 	errors.Check(err, "Failed setting custom status")
 }
