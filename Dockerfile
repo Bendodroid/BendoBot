@@ -24,7 +24,7 @@ WORKDIR /app
 COPY --from=build /app/BendoBot ./
 
 # Go into a new directory, which should be used as the mount point for a Docker volume.
-# This Docker volume should contain a valid configuration file (Config.json) for BendoBot.
+# This Docker volume should contain a valid configuration file (config.json) for BendoBot.
 # This way we can easily use a configuration file inside a Docker container.
 WORKDIR ./config_volume
 

@@ -20,9 +20,9 @@ go build
 ./BendoBot
 ```
 
-To work, the bot needs a `Config.json` in your current working directory.
+To work, the bot needs a `config.json` in your current working directory.
 An example is provided in this repo.
-Of course you need your own Discord API token, which you can get via the Discord Developer Portal.
+You need your own Discord API token which you can get via the Discord Developer Portal.
 
 ### Docker
 
@@ -58,17 +58,17 @@ docker volume inspect BendoBotData | grep Mountpoint
 
 This command should give you the path of the mountpoint.
 
-Now create a `Config.json` as described [above](#classic) and move it into the Docker volume using the mountpoint you just obtained.
+Now create a `config.json` as described [above](#classic) and move it into the Docker volume using the mountpoint you just obtained.
 
 Here's an example of how that can be done:
 
 ```shell script
-# Copy the example Config.json (Config.example.json) to Config.json
-cp Config.example.json Config.json
-# Edit the Config.json to replace the placeholder values
-vim Config.json
-# Move the Config.json into the Docker volume
-mv Config.json /path/of/Docker/volume/mountpoint
+# Copy the example config.json (config.example.json) to config.json
+cp config.example.json config.json
+# Edit the config.json to replace the placeholder values
+vim config.json
+# Move the config.json into the Docker volume
+mv config.json /path/of/Docker/volume/mountpoint
 ```
 
 #### Step 3: Running the Bot

@@ -9,5 +9,5 @@ var (
 
 func init() {
 	// Load the Bot config
-	util.LoadJSON("Config.json", &BotConfig)
+	util.LoadJSON("config.json", &BotConfig)
 }
