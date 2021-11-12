@@ -6,11 +6,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/bwmarrin/discordgo"
-
 	"github.com/Bendodroid/BendoBot/config"
 	"github.com/Bendodroid/BendoBot/errors"
 	"github.com/Bendodroid/BendoBot/handlers"
+	"github.com/bwmarrin/discordgo"
 )
 
 func main() {
@@ -31,7 +30,7 @@ func main() {
 	// Wait here until CTRL-C or other term signal is received.
 	fmt.Println("Bot is now running.  Press CTRL-C to exit.")
 	sc := make(chan os.Signal, 1)
-	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)
+	signal.Notify(sc, syscall.SIGTERM, os.Interrupt, os.Kill)
 	<-sc
 
 	// Cleanly close down the Discord session.
