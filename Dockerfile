@@ -1,4 +1,4 @@
-FROM golang:1.13-alpine AS build
+FROM golang:1.20-alpine AS build
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ COPY ./ ./
 RUN go build
 
 
-FROM golang:1.13-alpine AS deploy
+FROM golang:1.20-alpine AS deploy
 
 # Copy the Go path contents, to have all the dependencies, which are required to run BendoBot.
 COPY --from=build /go /go
@@ -30,4 +30,3 @@ WORKDIR ./config_volume
 
 # Run BendoBot.
 ENTRYPOINT ["../BendoBot"]
-
